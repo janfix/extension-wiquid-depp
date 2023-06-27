@@ -1,0 +1,73 @@
+{
+    "model": "IMSPCI",
+    "typeIdentifier": "CircuitPCI",
+    "label": "Construire son circuit Electronique",
+    "short": "Circuit",
+    "description": "Editeur dessin de circuit électronique",
+    "version": "1.0.0",
+    "author": "Jean-Philippe Rivière",
+    "email": "jean.philippe.riviere@gmail.com",
+    "tags": [
+        "technologies", "circuit électronique"
+    ],
+    "response": {
+        "baseType": "string",
+        "cardinality": "single"
+    },
+    "runtime": {
+        "hook": "./interaction/runtime/js/CircuitInteraction.min.js",
+        "modules": {
+            "CircuitPCI/interaction/runtime/js/CircuitInteraction.min": [
+                "interaction/runtime/js/CircuitInteraction.min.js"
+            ]
+        },
+        "src": [
+            "./interaction/runtime/js/CircuitInteraction.js",
+            "./interaction/runtime/js/renderer.js",
+            "./interaction/runtime/js/assets.js",
+            "./interaction/runtime/js/demoAssets.js",
+            "./interaction/runtime/js/deppAssets.js",
+            "./interaction/runtime/js/core/circuit2Json.js",
+            "./interaction/runtime/js/core/circuiteditor.js",
+            "./interaction/runtime/js/core/circuitSolver.js",
+            "./interaction/runtime/js/core/component.js",
+            "./interaction/runtime/js/core/componentDoubleEnded.js",
+            "./interaction/runtime/js/core/componentSingleEnded.js",
+            "./interaction/runtime/js/core/help.js",
+            "./interaction/runtime/js/core/math.js",
+            "./interaction/runtime/js/core/matrix.js",
+            "./interaction/runtime/js/core/model.js",
+            "./interaction/runtime/js/core/uiToolbar.js",
+            "./interaction/runtime/js/core/base/componentBattery.js",
+            "./interaction/runtime/js/core/base/componentCapacitor.js",
+            "./interaction/runtime/js/core/base/componentCurrentSource.js",
+            "./interaction/runtime/js/core/base/componentGround.js",
+            "./interaction/runtime/js/core/base/componentInductor.js",
+            "./interaction/runtime/js/core/base/componentResistor.js",
+            "./interaction/runtime/js/core/base/componentVoltageSource.js",
+            "./interaction/runtime/js/core/base/componentWire.js",
+            "./interaction/runtime/js/core/depp/componentDiodeLumi.js",
+            "./interaction/runtime/js/core/depp/componentInterFerm.js",
+            "./interaction/runtime/js/core/depp/componentInterOuv.js",
+            "./interaction/runtime/js/core/depp/componentLampe.js",
+            "./interaction/runtime/js/core/depp/componentMoteur.js",
+            "./interaction/runtime/js/core/depp/componentResistor.js"
+        ],
+        "stylesheets": [
+            "./interaction/runtime/css/circuit.css"
+        ]
+    },
+    "creator": {
+        "icon": "./interaction/creator/img/icon.svg",
+        "hook": "./imsPciCreator.min.js",
+        "src": [
+            "./imsPciCreator.js",
+            "./interaction/creator/tpl/markup.tpl",
+            "./interaction/creator/tpl/propertiesForm.tpl",
+            "./interaction/creator/widget/Widget.js",
+            "./interaction/creator/widget/states/states.js",
+            "./interaction/creator/widget/states/Question.js",
+            "./interaction/creator/widget/states/Answer.js"
+        ]
+    }
+}

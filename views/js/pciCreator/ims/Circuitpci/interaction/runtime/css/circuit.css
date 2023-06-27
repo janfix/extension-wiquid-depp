@@ -1,0 +1,94 @@
+.CircuitInteraction {
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.qti-customInteraction .CircuitInteraction {
+    width: 100%;
+    padding: 10px 20px 16px;
+    margin-bottom: 20px;
+}
+
+.CircuitInteraction .CTool {
+    margin: 2px;
+    width: 65px;
+    height: 60px;
+    padding: 4px;
+    background-color: #a58f23;
+    border: 2px rgb(60, 159, 224) solid;
+}
+
+.CircuitInteraction .buttonToolIcon {
+    width: 48px;
+}
+
+.CircuitInteraction .buttonTool {
+    margin: 2px;
+    width: 65px;
+    height: 60px;
+    padding: 4px;
+    background-color: #302b12;
+    border: 2px rgb(60, 159, 224) solid;
+}
+
+.CircuitInteraction .divEditor canvas {
+    border: 1px grey solid;
+}
+
+.CircuitInteraction .activeBT {
+    background-color: orangered;
+    border: 3px greenyellow solid;
+}
+
+.qti-customInteraction .CircuitInteraction .prompt {
+    position: relative;
+}
+
+.CircuitInteraction .data {
+    display: none;
+}
+
+.etiqSaved {
+    margin: 5px;
+    border: 1px #302B12 solid;
+}
+
+.CircuitInteraction .help {
+    padding: 10px;
+    display: none;
+    color: black;
+    background-color: whitesmoke;
+    border: 3px grey solid;
+    height: fit-content;
+    width: 100%;
+}
+
+ul.no-bullets {
+    list-style-type: none;
+    /* Remove bullets */
+    padding: 0;
+    /* Remove padding */
+    margin: 0;
+    /* Remove margins */
+}
+
+img.middle {
+    filter: invert(1);
+    vertical-align: middle;
+}
+
+.CircuitInteraction .topbar {
+    width: 100%;
+    text-align: right;
+}
+
+.CircuitInteraction .chapter {
+    width: 100%;
+    text-align: left;
+}
+
+.CircuitInteraction .demoImg {
+    width: 30%;
+    margin: 5px;
+    border: 1px grey solid;
+}

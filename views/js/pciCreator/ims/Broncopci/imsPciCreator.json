@@ -1,0 +1,46 @@
+{
+    "model": "IMSPCI",
+    "typeIdentifier": "broncoPortableInteraction",
+    "label": "Les effets de la pollution sur les bronchioles",
+    "short": "Bronco",
+    "description": "Les effets de la pollution sur les bronchioles - IMS Version",
+    "version": "1.0.1",
+    "author": "Jean-Philippe Riviere",
+    "email": "jean.philippe.riviere@gmail.com",
+    "tags": [
+        "5eme",
+        "SVT"
+    ],
+    "response": {
+        "baseType": "string",
+        "cardinality": "single"
+    },
+    "runtime": {
+        "hook": "bronco/runtime/js/broncoInteraction.min.js",
+        "modules": {
+            "broncoPortableInteraction/bronco/runtime/js/broncoInteraction.min": [
+                "bronco/runtime/js/broncoInteraction.min.js"
+            ]
+        },
+        "src": [
+            "./bronco/runtime/js/broncoInteraction.js",
+            "./bronco/runtime/js/renderer.js",
+            "./bronco/runtime/js/lib/jquery-ui.js"
+        ],
+        "stylesheets": [
+            "./bronco/runtime/css/broncoPortableInteraction.css"
+        ]
+    },
+    "creator": {
+        "icon": "./bronco/creator/img/icon.svg",
+        "hook": "./imsPciCreator.min.js",
+        "src": [
+            "./imsPciCreator.js",
+            "./bronco/creator/tpl/markup.tpl",
+            "./bronco/creator/tpl/propertiesForm.tpl",
+            "./bronco/creator/widget/Widget.js",
+            "./bronco/creator/widget/states/states.js",
+            "./bronco/creator/widget/states/Question.js"
+        ]
+    }
+}

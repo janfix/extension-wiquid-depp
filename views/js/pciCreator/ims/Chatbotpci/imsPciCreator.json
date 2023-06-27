@@ -1,0 +1,48 @@
+{
+    "model": "IMSPCI",
+    "typeIdentifier": "ChatBotPCI",
+    "label": "Scénarisez vos évaluations avec un ChatBot",
+    "short": "ChatBot",
+    "description": "Scénarisez vos évaluations avec un ChatBot",
+    "version": "1.0.0",
+    "author": "Jean-Philippe Rivière",
+    "email": "jean.philippe.riviere@gmail.com",
+    "tags": [
+        "adaptative assessment", "ChatBot", "CAT", "computerized adaptive testing"
+    ],
+    "response": {
+        "baseType": "string",
+        "cardinality": "single"
+    },
+    "runtime": {
+        "hook": "./interaction/runtime/js/ChatBotInteraction.min.js",
+        "modules": {
+            "ChatBotPCI/interaction/runtime/js/ChatBotInteraction.min": [
+                "interaction/runtime/js/ChatBotInteraction.min.js"
+            ]
+        },
+        "src": [
+            "./interaction/runtime/js/ChatBotInteraction.js",
+            "./interaction/runtime/js/renderer.js",
+            "./interaction/runtime/js/assets.js",
+            "./interaction/runtime/js/demojson.js",
+            "./interaction/runtime/js/lib/jquery-ui.js"
+        ],
+        "stylesheets": [
+            "./interaction/runtime/css/chatBot.css"
+        ]
+    },
+    "creator": {
+        "icon": "./interaction/creator/img/icon.svg",
+        "hook": "./imsPciCreator.min.js",
+        "src": [
+            "./imsPciCreator.js",
+            "./interaction/creator/tpl/markup.tpl",
+            "./interaction/creator/tpl/propertiesForm.tpl",
+            "./interaction/creator/widget/Widget.js",
+            "./interaction/creator/widget/states/states.js",
+            "./interaction/creator/widget/states/Question.js",
+            "./interaction/creator/widget/states/Answer.js"
+        ]
+    }
+}

@@ -1,0 +1,12 @@
+.qti-customInteraction .volcanisme {
+    width: 100%;
+    font-size: unset;
+    text-align: left;
+    background: #fff;
+    font-weight: 100;
+    color: black;
+}
+
+.qti-customInteraction .volcanisme .hiddendiv {
+    display: none;
+}

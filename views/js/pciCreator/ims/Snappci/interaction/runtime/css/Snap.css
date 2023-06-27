@@ -1,0 +1,97 @@
+ /* .bigDisplay {
+    top: -20px;
+    left: -20%;
+ } */
+ 
+ .SnapInteraction .noclicks {
+     pointer-events: none;
+     opacity: 0.3;
+ }
+ 
+ .SnapInteraction .compteur {
+     display: none;
+ }
+ 
+ .SnapInteraction canvas {
+     border: 1px black solid;
+ }
+ 
+ .SnapInteraction .consignes {
+     text-align: center;
+     margin: 10px;
+     font-size: 1.3em;
+     color: darkred;
+ }
+ 
+ .SnapInteraction .message {
+     text-align: center;
+     margin: 10px;
+     font-size: 1em;
+     color: blue;
+ }
+ 
+ .SnapInteraction .stop {
+     width: 100%;
+     height: 710px;
+     background-color: aliceblue;
+     opacity: 0.20;
+     position: absolute;
+     margin-top: -710px;
+ }
+ 
+ .SnapInteraction .marker {
+     text-align: center;
+     margin: 10px;
+ }
+ 
+ .SnapInteraction .square {
+     display: inline-flex;
+     text-align: center;
+     margin: 10px;
+     font-size: 1em;
+     color: blue;
+     border: 1px gainsboro solid;
+     width: 20px;
+     height: 20px;
+ }
+ 
+ .SnapInteraction .warnLimit {
+     padding: 10px;
+     text-align: center;
+     margin-left: 30%;
+     margin-right: auto;
+     background-color: darkred;
+     font-size: 1.1em;
+     color: white;
+     position: absolute;
+     margin-top: -600px;
+     display: none;
+     border: 2px black solid;
+     width: 350px;
+     height: 150px
+ }
+ 
+ .smallTitle {
+     font-weight: bold!important;
+     -webkit-text-size-adjust: 100%;
+     color: #222;
+     font-family: "Source Sans Pro", sans-serif;
+     font-weight: normal;
+     line-height: 1.4;
+     white-space: normal;
+     box-sizing: border-box;
+     display: inline-block;
+     margin-bottom: 5px;
+     position: relative;
+     cursor: pointer;
+     padding: 0;
+     font-size: 1.3rem;
+ }
+ 
+ label {
+     font-weight: bold;
+ }
+ 
+ .parag {
+     font-size: 0.8em;
+ }

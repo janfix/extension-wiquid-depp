@@ -1,0 +1,319 @@
+.chatPanel {
+    font-size: 0.8em;
+}
+
+.nodeCode .cross {
+    position: absolute;
+    top: -23px;
+    left: 115px;
+    cursor: pointer;
+}
+
+#home {
+    background-color: teal;
+    color: #f5f5f5;
+}
+
+.nodeCode {
+    top: 100px;
+    margin-left: 40%;
+    display: none;
+    padding: 15px;
+    border: 3px red solid;
+    cursor: grab;
+    background-color: teal;
+    color: #f5f5f5;
+    width: 120px;
+    font-size: 1.5em;
+    text-align: center;
+    opacity: 0.7;
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+.nodeCode::before {
+    content: "node-Id:";
+    font-size: 12px;
+    font-variant: small-caps;
+    display: block;
+}
+
+.qti-customInteraction .ChatBot {
+    width: 100%;
+    padding: 10px 20px 16px;
+    margin-bottom: 20px;
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Old versions of Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+.qti-customInteraction .ChatBot .SQTitre {
+    font-weight: bold;
+    font-size: 19px;
+    font-family: Arial, Helvetica, sans-serif;
+    ;
+}
+
+.qti-customInteraction .ChatBot .btDiv {
+    text-align: center;
+    padding: 10px;
+}
+
+.qti-customInteraction .ChatBot .actorlabel {
+    font-weight: bold;
+    font-style: normal;
+}
+
+.qti-customInteraction .ChatBot {
+    width: 100%;
+    padding: 10px 20px 16px;
+    margin-bottom: 20px;
+}
+
+.qti-customInteraction .ChatBot .fridge {
+    display: none;
+}
+
+.qti-customInteraction .ChatBot .prompt {
+    position: relative;
+}
+
+.qti-customInteraction .ChatBot .leftBox {
+    display: none;
+    width: 450px;
+    min-height: 697px;
+    float: left;
+    padding: 10px;
+    border: 1px grey solid;
+    border-collapse: all;
+    margin-bottom: 20px;
+}
+
+.qti-customInteraction .ChatBot .leftBoxClone {
+    width: 450px;
+    min-height: 697px;
+    float: left;
+    padding: 10px;
+    border: 1px grey solid;
+    border-collapse: all;
+    margin-bottom: 20px;
+}
+
+.qti-customInteraction .ChatBot .IDocWrapper {
+    min-width: 470px;
+    max-width: 470px;
+    min-height: 697px;
+    float: right;
+    padding: 10px;
+    border: 1px grey solid;
+    margin-bottom: 20px;
+    border-collapse: all;
+}
+
+
+/* .qti-customInteraction .ChatBot  .headBar{
+	background-color:#e5e5e5 ;} */
+
+.qti-customInteraction .ChatBot .accordionBox {
+    background-color: #e2accc;
+}
+
+.qti-customInteraction .ChatBot .btAccordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 3px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+}
+
+.qti-customInteraction .ChatBot .btAccordion.active,
+.qti-customInteraction .ChatBot .btAccordion:hover {
+    background-color: #ccc;
+}
+
+.qti-customInteraction .ChatBot .btAccordion.active,
+.qti-customInteraction .ChatBot .AccordionContent {
+    padding: 0 18px;
+    background-color: white;
+    /*  max-height: 0; */
+    overflow: hidden;
+    /* transition: max-height 0.2s ease-out; */
+}
+
+
+/* .qti-customInteraction .ChatBot .chatDiv {} */
+
+.qti-customInteraction .ChatBot .participants {
+    text-align: center;
+}
+
+.qti-customInteraction .ChatBot .actorList {
+    margin-top: 10px;
+    background-color: #fce8e8;
+    padding: 10px;
+    border: 1px grey solid;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.qti-customInteraction .ChatBot .chatRoom {
+    margin-top: 10px;
+    border: 1px grey solid;
+    overflow: scroll;
+    height: 200px;
+}
+
+.qti-customInteraction .ChatBot .repDiv {
+    margin-top: 10px;
+    ;
+}
+
+
+/* .qti-customInteraction .ChatBot .propositions {
+    ;
+} */
+
+.qti-customInteraction .ChatBot .propSender {
+    text-align: center;
+}
+
+.qti-customInteraction .ChatBot .proposi {
+    border: 1px lightgrey solid;
+    color: black;
+    cursor: pointer;
+    background-color: gainsboro;
+    padding: 10px;
+    margin-top: 10px;
+    ;
+}
+
+.qti-customInteraction .ChatBot .proposiAfter {
+    color: lightgrey;
+    border: 1px lightgrey solid;
+    cursor: default;
+    background-color: white;
+    padding: 10px;
+    margin-top: 10px;
+    ;
+}
+
+.qti-customInteraction .ChatBot .proposi:hover {
+    background-color: #eaeaea;
+    color: grey;
+}
+
+.qti-customInteraction .ChatBot .envoy {
+    margin-top: 10px;
+    cursor: pointer;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 150px;
+    background-color: gainsboro;
+    padding: 10px;
+    ;
+}
+
+.qti-customInteraction .ChatBot .envoy:hover {
+    background-color: #eaeaea;
+    margin-bottom: 5px;
+    color: grey;
+}
+
+.qti-customInteraction .ChatBot .dialogUl {
+    list-style-type: none;
+}
+
+.qti-customInteraction .ChatBot .dialogLi {
+    margin-left: -30px;
+    margin-bottom: 5px;
+}
+
+.qti-customInteraction .ChatBot .actor {
+    font-weight: bold;
+    margin-right: 3px;
+}
+
+.qti-customInteraction .ChatBot .system {
+    font-style: italic;
+}
+
+.qti-customInteraction .ChatBot .globWrapper {
+    border: 1px lightgrey solid;
+    max-width: 940px;
+    min-width: -webkit-fill-available;
+    min-width: -moz-fill-available;
+    min-width: fill-available;
+    float: left;
+}
+
+.qti-customInteraction .ChatBot .headBar {
+    background-color: #415f41;
+    height: 50px;
+    width: 940px;
+    color: white;
+    padding: 10px;
+}
+
+.qti-customInteraction .ChatBot .accordion {
+    border: 1px grey solid;
+    padding: 5px;
+    margin-bottom: 1px;
+}
+
+.qti-customInteraction .ChatBot .waiting {
+    animation: blinker 2s ease 2;
+}
+
+.qti-customInteraction .ChatBot .arriving {
+    animation: arriver 2s ease;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0.3;
+        background-color: red;
+    }
+}
+
+@keyframes arriver {
+    50% {
+        background-color: #82daf2;
+    }
+}
+
+.qti-customInteraction .ChatBot .selected {
+    background-color: #aee5be;
+    cursor: pointer;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.qti-customInteraction .ChatBot .SQContainer {
+    padding: 10px;
+}
+
+.qti-customInteraction .ChatBot .hiddenRep {
+    display: none;
+}
+
+.qti-customInteraction .ChatBot .leftBox {
+    display: none;
+}
+
+.qti-customInteraction .ChatBot .prompt {
+    position: relative;
+}

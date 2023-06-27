@@ -1,0 +1,47 @@
+{
+    "model": "IMSPCI",
+    "typeIdentifier": "CuisinePCI",
+    "label": "Expérience scientifique en Cuisine ",
+    "short": "Cuisine",
+    "description": "Expérience de Cuisine",
+    "version": "1.0.1",
+    "author": "Jean-Philippe Riviere",
+    "email": "jean.philippe.riviere@gmail.com",
+    "tags": [
+        "5eme",
+        "Physique-chimie"
+    ],
+    "response": {
+        "baseType": "string",
+        "cardinality": "single"
+    },
+    "runtime": {
+        "hook": "interaction/runtime/js/CuisineInteraction.min.js",
+        "modules": {
+            "CuisinePCI/interaction/runtime/js/CuisineInteraction.min": [
+                "interaction/runtime/js/CuisineInteraction.min.js"
+            ]
+        },
+        "src": [
+            "./interaction/runtime/js/CuisineInteraction.js",
+            "./interaction/runtime/js/renderer.js",
+            "./interaction/runtime/js/assets.js"
+        ],
+        "stylesheets": [
+            "./interaction/runtime/css/cuisine.css"
+        ]
+    },
+    "creator": {
+        "icon": "./interaction/creator/img/icon.svg",
+        "hook": "./imsPciCreator.min.js",
+        "src": [
+            "./imsPciCreator.js",
+            "./interaction/creator/tpl/markup.tpl",
+            "./interaction/creator/tpl/propertiesForm.tpl",
+            "./interaction/creator/widget/Widget.js",
+            "./interaction/creator/widget/states/states.js",
+            "./interaction/creator/widget/states/Question.js",
+            "./interaction/creator/widget/states/Answer.js"
+        ]
+    }
+}

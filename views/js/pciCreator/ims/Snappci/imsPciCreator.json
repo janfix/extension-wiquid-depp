@@ -1,0 +1,46 @@
+{
+    "model": "IMSPCI",
+    "typeIdentifier": "SnapPCI",
+    "label": "Learning how to program with Nsnap",
+    "short": "Snap",
+    "description": "Snap PCI - Learn how to program with blocks.",
+    "version": "1.0.0",
+    "author": "janfix",
+    "email": "jean.philippe.riviere@gmail.com",
+    "tags": [
+        "Snap", "PCI"
+    ],
+    "response": {
+        "baseType": "string",
+        "cardinality": "single"
+    },
+    "runtime": {
+        "hook": "./interaction/runtime/js/SnapInteraction.min.js",
+        "modules": {
+            "SnapPCI/interaction/runtime/js/SnapInteraction.min": [
+                "interaction/runtime/js/SnapInteraction.min.js"
+            ]
+        },
+        "src": [
+            "./interaction/runtime/js/SnapInteraction.js",
+            "./interaction/runtime/js/renderer.js",
+            "./interaction/runtime/js/assets.js",
+            "./interaction/runtime/js/lib/snapsrc.js",
+            "./interaction/runtime/js/lib/lz-string.min.js"
+        ],
+        "stylesheets": [ "./interaction/runtime/css/Snap.css"]   
+    },
+    "creator": {
+        "icon": "./interaction/creator/img/icon.svg",
+        "hook": "./imsPciCreator.min.js",
+        "src": [
+            "./imsPciCreator.js",
+            "./interaction/creator/tpl/markup.tpl",
+            "./interaction/creator/tpl/propertiesForm.tpl",
+            "./interaction/creator/widget/Widget.js",
+            "./interaction/creator/widget/states/Question.js",
+            "./interaction/creator/widget/states/Answer.js",
+            "./interaction/creator/widget/states/states.js"
+        ]
+    }
+}

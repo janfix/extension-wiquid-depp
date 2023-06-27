@@ -1,0 +1,82 @@
+
+  .qti-customInteraction .bronco .broncoanswer {
+    display: none;
+  }
+
+  .qti-customInteraction .bronco {
+    width: 100%;
+    height: 550px;
+    padding: 20px;
+  }
+
+  .qti-customInteraction .bronco .bonnesante {
+    font-size: 22px;
+    font-weight: bold;
+  }
+
+  .qti-customInteraction .bronco .asthmatique {
+    font-size: 22px;
+    font-weight: bold;
+    margin-left: 385px;
+    margin-top: -30px
+  }
+
+  .qti-customInteraction .bronco .alveole {
+    position: absolute;
+    margin-left: 565px;
+    margin-top: 120px;
+  }
+
+  .qti-customInteraction .bronco .paroi {
+    position: absolute;
+    margin-left: 565px;
+    margin-top: 260px;
+  }
+
+  .qti-customInteraction .bronco .consigne {
+    font-size: 17px;
+    margin-left: -10px;
+    width: 400px;
+    margin-top: 70px;
+  }
+
+  .qti-customInteraction .bronco .polludiv {
+    position: absolute;
+    margin-top: -140px;
+    margin-left: 45px;
+  }
+
+  .qti-customInteraction .bronco .leg {
+    font-weight: bold;
+    font-size: 16px;
+    position: absolute;
+    text-align: center;
+  }
+
+  .qti-customInteraction .bronco .moins {
+    left: -45px;
+    top: 25px;
+  }
+
+  .qti-customInteraction .bronco .plus {
+    left: 260px;
+    top: 25px;
+    width: 200px;
+  }
+
+.qti-item .bronco .ui-slider .ui-slider-handle {
+    width: 20px!important;
+    height: 29px!important;
+    cursor: pointer;
+    padding: 0;
+    margin-top: -9px!important;
+    border-radius: 5px;
+    background-color: #FFC0CB!important;
+    border: 2px #95B2D5 solid;
+}
+
+.qti-item .bronco .ui-widget {
+  width:320px!important;
+  border: 2px #95B2D5 solid!important;
+}
+  

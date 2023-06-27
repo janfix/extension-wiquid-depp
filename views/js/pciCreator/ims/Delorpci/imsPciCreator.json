@@ -1,0 +1,47 @@
+{
+    "model": "IMSPCI",
+    "typeIdentifier": "delorPCI",
+    "label": "Mesure masse volume",
+    "short": "De l'or",
+    "description": "Experience sur la masse et le volume",
+    "version": "1.0.1",
+    "author": "Jean-Philippe Riviere",
+    "email": "jean.philippe.riviere@gmail.com",
+    "tags": [
+        "5eme",
+        "Physique"
+    ],
+    "response": {
+        "baseType": "string",
+        "cardinality": "single"
+    },
+    "runtime": {
+        "hook": "interaction/runtime/js/delorInteraction.min.js",
+        "modules": {
+            "delorPCI/interaction/runtime/js/delorInteraction.min": [
+                "interaction/runtime/js/delorInteraction.min.js"
+            ]
+        },
+        "src": [
+            "./interaction/runtime/js/delorInteraction.js",
+            "./interaction/runtime/js/renderer.js",
+            "./interaction/runtime/js/lib/jquery-ui.js"
+        ],
+        "stylesheets": [
+            "./interaction/runtime/css/delor.css"
+        ]
+    },
+    "creator": {
+        "icon": "./interaction/creator/img/icon.svg",
+        "hook": "./imsPciCreator.min.js",
+        "src": [
+            "./imsPciCreator.js",
+            "./interaction/creator/tpl/markup.tpl",
+            "./interaction/creator/tpl/propertiesForm.tpl",
+            "./interaction/creator/widget/Widget.js",
+            "./interaction/creator/widget/states/states.js",
+            "./interaction/creator/widget/states/Question.js",
+            "./interaction/creator/widget/states/Answer.js"
+        ]
+    }
+}

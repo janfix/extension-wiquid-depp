@@ -1,0 +1,47 @@
+{
+    "model": "IMSPCI",
+    "typeIdentifier": "trainPCI",
+    "label": "Relativité des trajectoires",
+    "short": "train",
+    "description": "Relativité des trajectoires",
+    "version": "1.0.0",
+    "author": "Jean-Philippe Riviere",
+    "email": "jean.philippe.riviere@gmail.com",
+    "tags": [
+        "5eme",
+        "Sciences"
+    ],
+    "response": {
+        "baseType": "string",
+        "cardinality": "single"
+    },
+    "runtime": {
+        "hook": "interaction/runtime/js/trainInteraction.min.js",
+        "modules": {
+            "trainPCI/interaction/runtime/js/trainInteraction.min": [
+                "interaction/runtime/js/trainInteraction.min.js"
+            ]
+        },
+        "src": [
+            "./interaction/runtime/js/trainInteraction.js",
+            "./interaction/runtime/js/renderer.js",
+            "./interaction/runtime/js/assets.js"
+        ],
+        "stylesheets": [
+            "./interaction/runtime/css/train.css"
+        ]
+    },
+    "creator": {
+        "icon": "./interaction/creator/img/icon.svg",
+        "hook": "./imsPciCreator.min.js",
+        "src": [
+            "./imsPciCreator.js",
+            "./interaction/creator/tpl/markup.tpl",
+            "./interaction/creator/tpl/propertiesForm.tpl",
+            "./interaction/creator/widget/Widget.js",
+            "./interaction/creator/widget/states/states.js",
+            "./interaction/creator/widget/states/Question.js",
+            "./interaction/creator/widget/states/Answer.js"
+        ]
+    }
+}

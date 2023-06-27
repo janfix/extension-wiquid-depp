@@ -1,0 +1,49 @@
+{
+    "model": "IMSPCI",
+    "typeIdentifier": "abeillePCI",
+    "label": "La disparition des abeilles",
+    "short": "Abeilles",
+    "description": "Disparition des abeilles",
+    "version": "1.0.1",
+    "author": "Jean-Philippe Riviere",
+    "email": "jean.philippe.riviere@gmail.com",
+    "tags": [
+        "5eme",
+        "SVT"
+    ],
+    "response": {
+        "baseType": "string",
+        "cardinality": "single"
+    },
+    "runtime": {
+        "hook": "interaction/runtime/js/abeilleInteraction.min.js",
+        "modules": {
+            "abeillePCI/interaction/runtime/js/abeilleInteraction.min": [
+                "interaction/runtime/js/abeilleInteraction.min.js"
+            ]
+        },
+        "src": [
+            "./interaction/runtime/js/abeilleInteraction.js",
+            "./interaction/runtime/js/renderer.js",
+            "./interaction/runtime/js/assets.js",
+            "./interaction/runtime/js/lib/raphael.min.js",
+            "./interaction/runtime/js/lib/jquery-ui.js"
+        ],
+        "stylesheets": [
+            "./interaction/runtime/css/abeille.css"
+        ]
+    },
+    "creator": {
+        "icon": "./interaction/creator/img/icon.svg",
+        "hook": "./imsPciCreator.min.js",
+        "src": [
+            "./imsPciCreator.js",
+            "./interaction/creator/tpl/markup.tpl",
+            "./interaction/creator/tpl/propertiesForm.tpl",
+            "./interaction/creator/widget/Widget.js",
+            "./interaction/creator/widget/states/states.js",
+            "./interaction/creator/widget/states/Question.js",
+            "./interaction/creator/widget/states/Answer.js"
+        ]
+    }
+}
