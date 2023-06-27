@@ -1,4 +1,4 @@
-# extension-wiquid-Depp
+# extension-wiquid-depp
 ## Content
 This extension help you to fast install the DEPP-PCI package. These PCIs are for the moment : 
 1. Abeille
