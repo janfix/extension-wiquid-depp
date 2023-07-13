@@ -1,6 +1,6 @@
 {
 
-    "name": "janfix/extension-wiquid",
+    "name": "janfix/extension-wiquid-depp",
     "description": "Wiquid-DEPP PCI installer",
     "type": "tao-extension",
     "authors": [{
@@ -14,7 +14,7 @@
     ],
     "repositories": [{
         "type": "vcs",
-        "url": "https://github.com/janfix/extension-wiquid"
+        "url": "https://github.com/janfix/extension-wiquid-depp"
     }],
     "homepage": "https://github.com/janfix",
     "license": [
