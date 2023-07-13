@@ -17,8 +17,9 @@ This extension help you to fast install the DEPP-PCI package. These PCIs are for
 14. Volcanisme
 15. Explorer
 16. Snap
-17. Circuit
+17. Circuit*
 18. ChatBot
+19. Glips
 
 
 ## Installing the extension
@@ -35,5 +36,4 @@ And then :
 ...That's it.
 
 ## Development phase
-Comming soon...
-1. Glips PCI
+The End

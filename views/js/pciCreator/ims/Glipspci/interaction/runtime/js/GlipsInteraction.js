@@ -19,15 +19,14 @@
 define([
     'qtiCustomInteractionContext',
     'taoQtiItem/portableLib/jquery_2_1_1',
-    'CircuitPCI/interaction/runtime/js/renderer',
-    'taoQtiItem/portableLib/OAT/util/event',
-    'CircuitPCI/interaction/runtime/js/core/circuit2Json',
-], function(qtiCustomInteractionContext, $, renderer, event, circuit2Json) {
+    'GlipsPCI/interaction/runtime/js/renderer',
+    'taoQtiItem/portableLib/OAT/util/event'
+], function(qtiCustomInteractionContext, $, renderer, event) {
     'use strict';
 
-    var _typeIdentifier = 'CircuitPCI';
+    var _typeIdentifier = 'GlipsPCI';
 
-    var CircuitInteraction = {
+    var GlipsInteraction = {
 
         /*********************************
          *
@@ -85,10 +84,16 @@ define([
          * @returns {Object}
          */
         getResponse: function() {
-            var $container = $(this.dom);
-            $container.find(".CSaver").trigger("click");
-            var value = $container.find(".etiquette").html()
-                //let value = circuit2Json.convert($container.find(".raw").html())
+
+            var $container = $(this.dom),
+                value, $pulite;
+
+            $pulite = $container.find('.respCatSem').html();
+            $pulite = $pulite.slice(0, -1);
+
+            value = '{"AnswersSet":[' + $container.find('.respNode').html() + '],"AnsewrsIdoc":{' + $container.find('.idocAnswers').html() + '},"LastNode":"' + $container.find('.lastNode').html() + '"}';
+
+
             return { base: { string: value } };
         },
         /**
@@ -127,7 +132,7 @@ define([
          */
         initialize: function(id, dom, config, assetManager) {
 
-            var _this = this;
+            var self = this;
 
             //add method on(), off() and trigger() to the current object
             event.addEventMgr(this);
@@ -135,23 +140,21 @@ define([
             this.dom = dom;
             this.config = config || {};
 
-            renderer.render(id, this.dom, this.config, assetManager);
+            renderer.render(id, this.dom, this.config);
 
-            qtiCustomInteractionContext.notifyReady(this);
+            //listening to dynamic configuration change
+            this.on('backHomeChange', function(jsonData, dataImport) {
+                //restart from Home
+                $(self.dom).find(".accordionBox").empty();
+                var nodeData = renderer.getNodeData("root")
+                renderer.displayNode(self.dom, self.config, nodeData, jsonData, dataImport);
 
-
-            this.on('correctChange', function(value, etiquette) {
-                $(dom).find(".CSaver").trigger("click");
-                value = $(dom).find(".raw").html();
-                etiquette = $(dom).find(".etiquette").html();
-                _this.trigger('grabCorrectChange', [value, etiquette]);
             });
 
-
-
-
-
-
+            this.on('activNodeChange', function(nodeActiv, jsonData, dataImport) {
+                var nodeData = renderer.getNodeData(nodeActiv)
+                renderer.displayNode(self.dom, self.config, nodeData, jsonData, dataImport);
+            });
         },
 
         /**
@@ -206,7 +209,7 @@ define([
         }
     };
 
-    qtiCustomInteractionContext.register(CircuitInteraction);
+    qtiCustomInteractionContext.register(GlipsInteraction);
 
-    return CircuitInteraction;
+    return GlipsInteraction;
 });
