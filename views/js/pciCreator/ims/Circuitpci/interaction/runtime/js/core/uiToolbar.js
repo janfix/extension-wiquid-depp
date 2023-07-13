@@ -60,9 +60,9 @@ define([
 
             $container.find(".toolbar").html(
 
-                '<button class="buttonTool buttonToolSelected grabber" title="Saisir pour déplacer ou effacer"><img class="buttonToolIcon" src="' + icoGrab.src + '">' +
-                '</button> <button class="buttonTool wire" title="Cable"><img class="buttonToolIcon" src="' + icon_wire.src + '"> </button>' +
-                '<button class="buttonTool battery" title="Batterie"><img class="buttonToolIcon"  src="' + icon_battery.src + '"> </button>' +
+                '<button class="buttonTool buttonToolSelected grabber" title="Saisir pour modifier"><img class="buttonToolIcon" src="' + icoGrab.src + '">' +
+                '</button> <button class="buttonTool wire" title="Fil"><img class="buttonToolIcon" src="' + icon_wire.src + '"> </button>' +
+                '<button class="buttonTool battery" title="Pile"><img class="buttonToolIcon"  src="' + icon_battery.src + '"> </button>' +
                 '<button class="buttonTool resistor" title="Resistance"><img class="buttonToolIcon"  src="' + icon_resistance.src + '"> </button> ' +
                 '<button class="buttonTool moteur" title="Moteur"><img class="buttonToolIcon"  src="' + icon_moteur.src + '"> </button> ' +
                 '<button class="buttonTool lampe" title="Lampe"><img class="buttonToolIcon"  src="' + icon_lampe.src + '"> </button> ' +
