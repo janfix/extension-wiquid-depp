@@ -87,7 +87,8 @@ define([
         getResponse: function() {
             var $container = $(this.dom);
             $container.find(".CSaver").trigger("click");
-            let value = circuit2Json.convert($container.find(".raw").html())
+            var value = $container.find(".etiquette").html()
+                //let value = circuit2Json.convert($container.find(".raw").html())
             return { base: { string: value } };
         },
         /**

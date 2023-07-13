@@ -157,7 +157,7 @@ define([
 
                         if (data == null ||
                             hover.distSqr < data.distSqr) {
-                           // data = {...hover, component }
+                            //data = {...hover, component }
                             data = Object.assign({}, hover, { component });
                         }
                     }
@@ -503,7 +503,7 @@ define([
                         this.ctx.textAlign = "center"
                         this.ctx.textBaseline = "middle"
                         this.ctx.fillStyle = "#aac"
-                        this.ctx.fillText("Select a tool and draw here!", this.width / 2, this.height / 2)
+                        this.ctx.fillText("Selectionner un composant et dessiner ici votre circuit!", this.width / 2, this.height / 2)
                     }
 
                     this.ctx.fillStyle = "#aac"
@@ -795,7 +795,7 @@ define([
 
                     if (data == null ||
                         hover.distSqr < data.distSqr) {
-                        //data = { ...hover, component }
+                        //data = {...hover, component }
                         data = Object.assign({}, hover, { component });
                     }
                 }
