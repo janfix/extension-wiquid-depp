@@ -37,6 +37,7 @@ use oat\wiquid\scripts\install\RegisterPciExploIMS;
 use oat\wiquid\scripts\install\RegisterPciSnapIMS;
 use oat\wiquid\scripts\install\RegisterPciCircuitIMS;
 use oat\wiquid\scripts\install\RegisterPciChatbotIMS;
+use oat\wiquid\scripts\install\RegisterPciGlipsIMS;
 
 
 return array(
@@ -69,7 +70,8 @@ return array(
             RegisterPciExploIMS::class,
             RegisterPciSnapIMS::class,
             RegisterPciCircuitIMS::class,
-            RegisterPciChatbotIMS::class
+            RegisterPciChatbotIMS::class,            
+            RegisterPciGlipsIMS::class
 		)
     ),
     'update' => 'oat\\wiquid\\scripts\\update\\Updater',
