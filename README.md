@@ -31,7 +31,7 @@ Follow the normal processus installing a TAO Extension : you need composer. If y
 And then : 
 
 1. Open your TAO directory. Be sure to be at the root of the application. 
-2. Type : composer require janfix/extension-wiquid-depp:v1.0.0
+2. Type : composer require janfix/extension-wiquid-depp:v1.2.2
 3. In TAO, go to The extension manager and activate the new extension
 ...That's it.
 
