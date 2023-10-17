@@ -100,6 +100,9 @@ define([
          */
         destroy: function() {
 
+            const cancelAnimationFrame =window.cancelAnimationFrame || window.mozCancelAnimationFrame;
+            cancelAnimationFrame(window.RAF);
+            
             var $container = $(this.dom);
             $container.off().empty();
         },

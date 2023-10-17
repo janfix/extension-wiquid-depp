@@ -18,12 +18,28 @@
     border: 2px rgb(60, 159, 224) solid;
 }
 
+.CircuitInteraction .CToolMeta {
+    margin: 2px;
+    width: 40px;
+    height: 60px;
+    padding: 4px;
+    background-color: #a58f23;
+    border: 2px rgb(60, 159, 224) solid;
+}
+
 .CircuitInteraction .buttonToolIcon {
     width: 48px;
 }
 
+.CircuitInteraction .ResetButtonIcon {
+    width: 38px;
+    margin-left: -5px;
+    margin-top: 5px;
+}
+
+
 .CircuitInteraction .buttonTool {
-    margin: 2px;
+    margin: 1px;
     width: 65px;
     height: 60px;
     padding: 4px;

@@ -49,8 +49,8 @@ define([
 
                 render: function render(manager, ctx) {
                     const symbolSize = Math.min(15, this.getLength())
-                    const smallPlateSize = 12.5
-                    const bigPlateSize = 25
+                    const smallPlateSize = 25 //Attention inversion pour coller avec la polarité!
+                    const bigPlateSize = 12.5 //Attention inversion pour coller avec la polarité!
 
                     this.drawSymbolBegin(manager, ctx, symbolSize)
 
@@ -69,6 +69,8 @@ define([
                     ctx.stroke()
 
                     this.drawSymbolEnd(manager, ctx)
+
+                    this.drawPolarisationPlus(manager, ctx, symbolSize)
                         //this.drawRatingText(manager, ctx, this.voltage, "V")
                 }
 

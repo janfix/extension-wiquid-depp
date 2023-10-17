@@ -94,6 +94,46 @@ define([
 
                     ctx.restore()
                 },
+                drawPolarisationPlus : function drawPolarisationPlus(manager, ctx, symbolSize){
+                    
+                     const vector = {
+                        x: this.points[1].x - this.points[0].x,
+                        y: this.points[1].y - this.points[0].y
+                    }
+                    const vectorLen = Math.sqrt(vector.x * vector.x + vector.y * vector.y)
+                    const vectorUnit = {
+                        x: vector.x / vectorLen,
+                        y: vector.y / vectorLen
+                    }
+                   
+                    const midPoint = {
+                        x: this.points[0].x + vector.x / 2,
+                        y: this.points[0].y + vector.y / 2
+                    };
+
+
+
+                    //Solution Basée sur un middle point
+                    const brok1 = -40//Math.max(0, vectorLen / 2 - symbolSize+10)
+                    const brok2 = 40//Math.min(vectorLen, vectorLen / 2 + symbolSize-10)
+
+                   // if(vector.x >= 0 && vector.y >= 0){
+                    ctx.font = "20px Arial"; // Choisissez la taille de police appropriée
+                    ctx.fillStyle = '#e9e9e9'; // Choisissez la couleur appropriée
+                    ctx.textAlign = "center";
+                    ctx.textBaseline = "middle";
+                    
+                    console.log(vector)
+                    if(vector.x == 0){
+                        ctx.fillText("+", midPoint.x + vectorUnit.x * brok1 -10, midPoint.y + vectorUnit.y * brok1);
+                        ctx.fillText("-", midPoint.x + vectorUnit.x * brok2 -10, midPoint.y + vectorUnit.y * brok2);
+                    } else{
+                        //Basée sur le middle Point
+                        ctx.fillText("+", midPoint.x + vectorUnit.x * brok1, midPoint.y + vectorUnit.y * brok1 - 10);
+                        ctx.fillText("-", midPoint.x + vectorUnit.x * brok2, midPoint.y + vectorUnit.y * brok2 -10);
+                    }
+                    
+                },
                 drawSymbolBegin: function drawSymbolBegin(manager, ctx, symbolSize) {
                     const vector = {
                         x: this.points[1].x - this.points[0].x,
@@ -139,6 +179,74 @@ define([
                 drawSymbolEnd: function drawSymbolEnd(manager, ctx) {
                     ctx.restore()
                 },
+                /* drawPolarisationMinus : function drawPolarisationMinus(manager, ctx, symbolSize){
+                    console.log("polarisation -");
+                     const vector = {
+                        x: this.points[1].x - this.points[0].x,
+                        y: this.points[1].y - this.points[0].y
+                    }
+                    const vectorLen = Math.sqrt(vector.x * vector.x + vector.y * vector.y)
+                    const vectorUnit = {
+                        x: vector.x / vectorLen,
+                        y: vector.y / vectorLen
+                    }
+                    const brak1 = Math.max(0, vectorLen / 2 - symbolSize / 2)
+                    const brak2 = Math.min(vectorLen, vectorLen / 2 + symbolSize / 2)
+                    
+                    
+                    if(vector.x >= 0 && vector.y == 0){
+                        console.log("X pos ou null -----  y null")
+                    ctx.font = "20px Arial"; // Choisissez la taille de police appropriée
+                    ctx.fillStyle = '#FF8800'; // Choisissez la couleur appropriée
+                    ctx.textAlign = "center";
+                    ctx.textBaseline = "middle";
+                    console.log(brak1) // Il est à zéro
+                    ctx.fillText("-", this.points[0].x + vectorUnit.x * brak1 + symbolSize + 15, this.points[0].y + vectorUnit.y * brak1 + symbolSize/2 -35);
+                    }
+
+                    if(vector.x >= 0 && vector.y > 0){
+                    console.log("X pos ou null -----  y superieur")
+                    ctx.font = "20px Arial"; // Choisissez la taille de police appropriée
+                    ctx.fillStyle = '#FF8800'; // Choisissez la couleur appropriée
+                    ctx.textAlign = "center";
+                    ctx.textBaseline = "middle";
+                    console.log(brak1)
+                    var diago = 50;
+                    ctx.fillText("0", this.points[0].x + vectorUnit.x * brak1 + diago, this.points[0].y + vectorUnit.y * brak1 + diago - 20);
+                    ctx.fillText("-", this.points[0].x + vectorUnit.x + brak1 + symbolSize/2 +15, this.points[0].y + vectorUnit.y * (2*brak1));
+                    }
+
+
+                    if(vector.x > 0 && vector.y < 0){
+                        console.log("X pos  -----  y negatif")
+                    ctx.font = "20px Arial"; // Choisissez la taille de police appropriée
+                    ctx.fillStyle = '#FF8800'; // Choisissez la couleur appropriée
+                    ctx.textAlign = "center";
+                    ctx.textBaseline = "middle";
+                    ctx.fillText("-", this.points[0].x + vectorUnit.x * brak1 - 15, this.points[0].y + vectorUnit.y * brak1 + symbolSize/2 -15);
+                    }
+
+                    if(vector.x <= 0 && vector.y <= 0){
+                        console.log("X neg ou null -----  y neg ou null")
+                    ctx.font = "20px Arial"; // Choisissez la taille de police appropriée
+                    ctx.fillStyle = '#FF8800'; // Choisissez la couleur appropriée
+                    ctx.textAlign = "center";
+                    ctx.textBaseline = "middle";
+                    ctx.fillText("-", this.points[0].x + vectorUnit.x * brak2 - 15 , this.points[0].y + vectorUnit.y * brak2 + symbolSize/2 -15);
+                    }    
+
+                    if(vector.x < 0 && vector.y > 0){
+                         console.log("X neg ou null  -----  y posi")
+                    ctx.font = "20px Arial"; // Choisissez la taille de police appropriée
+                    ctx.fillStyle = '#FF8800'; // Choisissez la couleur appropriée
+                    ctx.textAlign = "center";
+                    ctx.textBaseline = "middle";
+                    ctx.fillText("-", this.points[0].x + vectorUnit.x * brak2 - 15 , this.points[0].y + vectorUnit.y * brak2 + symbolSize/2 -15 );
+                    }    
+                    console.log(vector.x, vector.y)
+
+                }
+                , */
                 renderCurrent: function renderCurrent(manager, ctx) {
                     this.drawCurrent(manager, ctx, this.currentAnim, this.points[0], this.points[1])
                 },

@@ -3,7 +3,10 @@ define([
         'CircuitPCI/interaction/runtime/js/core/base/componentWire',
         'CircuitPCI/interaction/runtime/js/core/base/componentBattery',
         'CircuitPCI/interaction/runtime/js/core/depp/componentResistor',
+        'CircuitPCI/interaction/runtime/js/core/depp/componentAluminium',
+        'CircuitPCI/interaction/runtime/js/core/depp/componentCoton',
         'CircuitPCI/interaction/runtime/js/core/depp/componentMoteur',
+        'CircuitPCI/interaction/runtime/js/core/depp/componentGenerator',
         'CircuitPCI/interaction/runtime/js/core/depp/componentLampe',
         'CircuitPCI/interaction/runtime/js/core/base/componentInductor',
         'CircuitPCI/interaction/runtime/js/core/base/componentVoltageSource',
@@ -16,7 +19,7 @@ define([
 
 
     ],
-    function($, ComponentWire, ComponentBattery, ComponentResistor, ComponentMoteur, ComponentLampe, ComponentInductor, ComponentVoltagesource, componentInterFerm, componentInterOuv, ComponentDiodeLumi, assets, deppAssets, help) {
+    function($, ComponentWire, ComponentBattery, ComponentResistor,ComponentAluminium,ComponentCoton,ComponentMoteur, componentGenerator,ComponentLampe, ComponentInductor, ComponentVoltagesource, componentInterFerm, componentInterOuv, ComponentDiodeLumi, assets, deppAssets, help) {
         'use strict';
 
         function UIToolbar($container, config, assetManager, circuitCanvas) {
@@ -56,6 +59,9 @@ define([
             var icon_interFerm = { src: deppAssets.interFerm };
             var icon_wire = { src: deppAssets.cable };
             var icon_reset = { src: deppAssets.reset };
+            var icon_alu = { src: deppAssets.icon_alu };
+            var icon_coton = { src: deppAssets.icon_coton };
+            var icon_generator = { src: deppAssets.icon_Generator };
 
 
             $container.find(".toolbar").html(
@@ -64,13 +70,16 @@ define([
                 '</button> <button class="buttonTool wire" title="Fil"><img class="buttonToolIcon" src="' + icon_wire.src + '"> </button>' +
                 '<button class="buttonTool battery" title="Pile"><img class="buttonToolIcon"  src="' + icon_battery.src + '"> </button>' +
                 '<button class="buttonTool resistor" title="Resistance"><img class="buttonToolIcon"  src="' + icon_resistance.src + '"> </button> ' +
+                '<button class="buttonTool alu" title="Aluminium"><img class="buttonToolIcon"  src="' + icon_alu.src + '"> </button> ' +
+                '<button class="buttonTool coton" title="Coton"><img class="buttonToolIcon"  src="' + icon_coton.src + '"> </button> ' +
                 '<button class="buttonTool moteur" title="Moteur"><img class="buttonToolIcon"  src="' + icon_moteur.src + '"> </button> ' +
+                '<button class="buttonTool generateur" title="Generateur"><img class="buttonToolIcon"  src="' + icon_generator.src + '"> </button> ' +
                 '<button class="buttonTool lampe" title="Lampe"><img class="buttonToolIcon"  src="' + icon_lampe.src + '"> </button> ' +
                 '<button class="buttonTool interOuv" title="Interrupteur ouvert"><img class="buttonToolIcon"  src="' + icon_interOuv.src + '"> </button> ' +
                 '<button class="buttonTool interFerm" title="Interrupteur fermé"><img class="buttonToolIcon"  src="' + icon_interFerm.src + '"> </button> ' +
                 '<button class="buttonTool diodeElu" title="Diode Electroluminescente"><img class="buttonToolIcon"  src="' + icon_diodeElu.src + '"> </button>  ' +
-                '<button style="float:right;" class="CTool CClear" title="Recommencer depuis le debut"><span><img class="buttonToolIcon"  src="' + icon_reset.src + '"></span></button>' +
-                '<button style="float:right;"  class="CTool expli" title="Explications du fonctionnement"><span style="text-shadow:none;font-size:2.5em!important;color:white;line-height:initial;">?</span></button>'
+                '<button style="float:right;" class="CToolMeta CClear" title="Recommencer depuis le debut"><span><img width="38px" class="ResetButtonIcon"  src="' + icon_reset.src + '"></span></button>' +
+                '<button style="float:right;"  class="CToolMeta expli" title="Explications du fonctionnement"><span style="text-shadow:none;font-size:2.5em!important;color:white;line-height:initial;">?</span></button>'
             );
 
             var currentComponent;
@@ -93,12 +102,30 @@ define([
                 $(this).addClass("activeBT")
 
             })
+            $container.find('.alu').on("click", function() {
+                circuitCanvas.mouseAddComponentClass = ComponentAluminium
+                $container.find(".activeBT").removeClass("activeBT");
+                $(this).addClass("activeBT")
+
+            })
+            $container.find('.coton').on("click", function() {
+                circuitCanvas.mouseAddComponentClass = ComponentCoton
+                $container.find(".activeBT").removeClass("activeBT");
+                $(this).addClass("activeBT")
+
+            })
             $container.find('.moteur').on("click", function() {
                 circuitCanvas.mouseAddComponentClass = ComponentMoteur
                 $container.find(".activeBT").removeClass("activeBT");
                 $(this).addClass("activeBT")
 
             })
+            $container.find('.generateur').on("click", function() {
+               circuitCanvas.mouseAddComponentClass = componentGenerator
+                $container.find(".activeBT").removeClass("activeBT");
+                $(this).addClass("activeBT")
+            })
+
             $container.find('.lampe').on("click", function() {
                 circuitCanvas.mouseAddComponentClass = ComponentLampe
                 $container.find(".activeBT").removeClass("activeBT");
@@ -111,7 +138,7 @@ define([
                 $(this).addClass("activeBT")
 
             })
-            $('.interFerm').on("click", function() {
+            $container.find('.interFerm').on("click", function() {
                 circuitCanvas.mouseAddComponentClass = componentInterFerm
                 $(".activeBT").removeClass("activeBT");
                 $(this).addClass("activeBT")

@@ -14,6 +14,9 @@ define([
         'CircuitPCI/interaction/runtime/js/core/depp/componentInterOuv',
         'CircuitPCI/interaction/runtime/js/core/depp/componentLampe',
         'CircuitPCI/interaction/runtime/js/core/depp/componentMoteur',
+        'CircuitPCI/interaction/runtime/js/core/depp/componentCoton',
+        'CircuitPCI/interaction/runtime/js/core/depp/componentAluminium',  
+        'CircuitPCI/interaction/runtime/js/core/depp/componentGenerator',
         'CircuitPCI/interaction/runtime/js/core/depp/componentResistor'
     ],
     function($,
@@ -31,6 +34,9 @@ define([
         componentInterOuv,
         componentLampe,
         componentMoteur,
+        componentCoton,
+        componentAluminium,        
+        componentGenerateur,
         componentResistance
     ) {
 
@@ -70,7 +76,8 @@ define([
                 debugSkipIterationFrames: 0,
                 debugSkipIterationFramesCur: 0,
                 run: function run() {
-                    this.debugSkipIterationFramesCur++
+                    //Wiquid : stop calculating the circuit!
+                    /* this.debugSkipIterationFramesCur++
                         if (this.debugSkipIterationFramesCur >= this.debugSkipIterationFrames) {
                             this.debugSkipIterationFramesCur = 0
 
@@ -103,11 +110,13 @@ define([
 
                             for (const component of this.components)
                                 component.updateCurrentAnim(this, 1)
-                        }
+                        } */
 
                     this.render()
 
-                    window.requestAnimationFrame(() => this.run())
+                    /* var RAF = window.requestAnimationFrame(() => this.run())
+                    window.RAF = RAF;
+                    console.log(RAF) */
 
                 },
                 resize: function resize(width, height) {
@@ -152,6 +161,7 @@ define([
 
                     for (let component of this.components) {
                         const hover = component.getHover(pos)
+                        
                         if (hover == null)
                             continue
 
@@ -171,7 +181,6 @@ define([
                         return 1 / (-level + 1)
                 },
                 onMouseDown: function onMouseDown(ev) {
-                    //console.log(this)
                     ev.preventDefault()
 
                     if (this.mouseDown)
@@ -189,7 +198,7 @@ define([
                     this.mouseCurrentAction = null
                     this.componentsForEditing = []
 
-                    //console.log(ev.button)
+                   
 
                     if (!ev.ctrlKey) // && (this.mouseCurrentHoverData.component == null || !this.mouseCurrentHoverData.component.isAnySelected()))
                         this.unselectAll()
@@ -199,14 +208,10 @@ define([
                         this.mouseCurrentAction = "pan"
                     } else if (this.mouseAddComponentClass != null) {
                         this.mouseCurrentAction = "drag"
-                            //console.log("Posi Tracker")
-                            //console.log(this.mousePosSnapped)
-                            //let component = new (this.mouseAddComponentClass).add(this.mousePosSnapped)
                         let component = Object.create(this.mouseAddComponentClass.add(this.mousePosSnapped))
                         component.selected[1] = true
                         component.dragStart()
                         this.components.push(component)
-                            //console.log(this.components)
                     } else if (this.mouseCurrentHoverData != null) {
                         this.mouseCurrentAction = "drag"
 
@@ -312,21 +317,32 @@ define([
                 onKeyDown: function onKeyDown() {
                     var that = this;
                     $(document).on("keydown", function(ev) {
-                        console.log("Inside Keyboard Listener")
                         if (ev.key == "Delete" || ev.key == "Backspace") {
                             ev.preventDefault()
                             console.log("PRESS DELETE OR BACKSPACE")
                             console.log(that.components)
                             const hasOneFullySelected = that.components.reduce((acc, c) => acc || c.isFullySelected(), false)
-
-                            for (let i = that.components.length - 1; i >= 0; i--) {
+                            //Activate Animation Wiquid
+                             for (let i = that.components.length - 1; i >= 0; i--) {
+                               
                                 if ((hasOneFullySelected && that.components[i].isFullySelected()) ||
                                     (!hasOneFullySelected && that.components[i].isAnySelected())) {
+                                    console.log(that.components[i])
+                                   
                                     that.components.splice(i, 1)
                                 }
+                                
                             }
-
+                            var RAF = window.requestAnimationFrame(() => that.run())
+                            window.RAF = RAF;
                             that.refreshNodes()
+                            that.unselectAll()
+                            that.removeDegenerateComponents()
+                            
+                            //that.ctx.restore()
+                            //console.log(that.ctx)
+                            //that.render()
+                            //that.refreshUI()
                         }
                     })
                 },
@@ -524,14 +540,20 @@ define([
                     this.ctx.fillStyle = "#26a"
                     for (const component of this.components)
                         component.renderSelection(this, this.ctx)
-
+                   
                     this.ctx.strokeStyle = "#4af"
                     this.ctx.fillStyle = "#4af"
-                    if (this.mouseCurrentHoverData != null && this.mouseAddComponentClass == null && !this.mouseDown)
+                    if (this.mouseCurrentHoverData != null && this.mouseAddComponentClass == null && !this.mouseDown){ 
+                       
+                        //Wiquid solution to make the selector disappeared | controle of animation / activation / deactivation ponctuelle
                         this.mouseCurrentHoverData.component.renderHover(this, this.ctx, this.mouseCurrentHoverData)
-
+                        var RAF = window.requestAnimationFrame(() => this.run())
+                            window.RAF = RAF;
+                    }
+                    //Classic color to draw components
                     this.ctx.strokeStyle = "#f80"
                     this.ctx.fillStyle = "#f80"
+                   
                     for (const component of this.componentsForEditing)
                         component.renderEditing(this, this.ctx)
 
@@ -700,6 +722,9 @@ define([
                         componentInterOuv.add(),
                         componentLampe.add(),
                         componentMoteur.add(),
+                        componentAluminium.add(),
+                        componentCoton.add(),
+                        componentGenerateur.add(),
                         componentResistance.add()
                     ]
 
@@ -727,6 +752,7 @@ define([
             }
 
             //Chapter I : Event
+
 
             function getZoomFactor(level) {
                 if (level >= 0)

@@ -51,6 +51,9 @@
             "./interaction/runtime/js/core/depp/componentInterOuv.js",
             "./interaction/runtime/js/core/depp/componentLampe.js",
             "./interaction/runtime/js/core/depp/componentMoteur.js",
+            "./interaction/runtime/js/core/depp/componentGenerator.js",
+            "./interaction/runtime/js/core/depp/componentAluminium.js",
+            "./interaction/runtime/js/core/depp/componentCoton.js",
             "./interaction/runtime/js/core/depp/componentResistor.js"
         ],
         "stylesheets": [

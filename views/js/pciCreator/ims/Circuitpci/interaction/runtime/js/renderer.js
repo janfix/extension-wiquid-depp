@@ -29,13 +29,14 @@ define(['taoQtiItem/portableLib/jquery_2_1_1',
 
         function renderChoices(id, $container, config, assetManager) {
 
-
+           
             var Kanvas = $container.find("canvas").get(0);
             var circuitCanvas = CircuitEditor.add($container, config, Kanvas)
             uiToolbar.add($container, config, assetManager, circuitCanvas);
             $container.find(".CSaver").html('<button>Save Circuit data</button>')
 
             circuitCanvas.run();
+              
             circuitCanvas.onKeyDown();
 
 
