@@ -97,6 +97,7 @@ define([
 
 
             //Use XML Data for Response
+            console.log(this.config)
             if (this.config.XMLData) {
                 XMLDataRep = snapsrc.snap.world.stateSaver();
             } else {
@@ -205,6 +206,7 @@ define([
                     renderer.renderSnap(_this.id, _this.dom, _this.config);
                 }
             });
+
 
             this.on('testLimiterChange', function(limiter) {
                 _this.config.testLimiter = limiter;

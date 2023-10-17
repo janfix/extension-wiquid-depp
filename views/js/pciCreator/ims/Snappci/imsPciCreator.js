@@ -55,8 +55,8 @@ define([
                 testLimiter: 0, 
                 snapScript:'shield',
                 XMLData : true,
-                HTMLReport : false,
-                snapshot : false 
+                HTMLReport : true,
+                snapshot : true 
             };
         },
         /**

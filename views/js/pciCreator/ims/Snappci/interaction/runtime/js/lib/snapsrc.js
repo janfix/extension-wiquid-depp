@@ -28452,7 +28452,7 @@ define([], function() {
         var compteurGo = config.testLimiter; // Wiquid Counting user try
         var redFlag = -1;
         $container.find(".marker").empty();
-        console.log(TaoContext);
+        //console.log(TaoContext);
         if (!TaoContext) {
             for (let i = 0; i < compteurGo; i++) {
                 $container.find(".marker").append('<div class="square R' + i + '"</div>')
@@ -60221,8 +60221,8 @@ define([], function() {
                 delete Array.prototype.toXML;
             }
             var myarray = []
-            console.log("ARRAY IS CLEANED")
-            console.log(typeof myarray.toXML)
+            //console.log("ARRAY IS CLEANED")
+            //console.log(typeof myarray.toXML)
         }
 
         // XML_Serializer accessing:
@@ -60243,7 +60243,7 @@ define([], function() {
         XML_Serializer.prototype.store = function(object, mediaID) {
             // private - mediaID is optional
 
-            console.log(object)
+            //console.log(object)
 
             if (isNil(object) || !object.toXML) {
                 // unsupported type, to be checked before calling store()
@@ -63675,8 +63675,8 @@ define([], function() {
 
         world.xmlString = getSnapProjectScript;
 
-        console.log(config)
-        console.log(Array())
+        //console.log(config)
+        //console.log(Array())
 
 
         world.leftReducer = function leftReducer() {

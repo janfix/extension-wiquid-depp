@@ -83,6 +83,24 @@ define([
             interaction.prop('snapScript', value);            
          });
 
+         console.log(interaction.prop('XMLData'))
+         console.log(interaction.prop('HTMLReport')) 
+         console.log(interaction.prop('snapshot'))
+        
+        if(interaction.prop('XMLData')){
+             $form.find( "#dataXML" ).prop( "checked", true );
+        } else{ $form.find( "#dataXML" ).prop( "checked", false );}  
+
+        
+        if(interaction.prop('HTMLReport')){
+             $form.find( "#dataHTML" ).prop( "checked", true );
+        } else{ $form.find( "#dataHTML" ).prop( "checked", false );} 
+
+        
+        if(interaction.prop('snapshot')){
+             $form.find( "#SnapShot" ).prop( "checked", true );
+        } else{ $form.find( "#SnapShot" ).prop( "checked", false );}
+
          //********************Save Snap State***************************/
         $form.find(".saveSnapState").on("click", function () {
             var value;
@@ -91,28 +109,19 @@ define([
 
         //*********************Activate Report in Data***************** */
 
-        $form.find("#dataXML").on("click", function (event) {
-            console.log(event)
-            var value = event.currentTarget.value;
-            if(value == "on"){value=true;}
-            else{value=false;}
-            interaction.prop('XMLData', value);
-           
+       $form.find("#dataXML").on("click", function () {
+            var value = $(this).prop("checked");
+            interaction.prop('XMLData', value)     
         });
 
-        $form.find("#dataHTML").on("click", function (event) {
-            console.log(event)
-            var value = event.currentTarget.value;
-            if(value == "on"){value=true;}
-            else{value=false;}
-            interaction.prop('HTMLReport', value);
+        $form.find("#dataHTML").on("click", function () {
+            var value = $(this).prop("checked");
+            interaction.prop('HTMLReport',value)
         });
 
-        $form.find("#SnapShot").on("click", function (event) {
-            var value = event.currentTarget.value;
-            if(value == "on"){value=true;}
-            else{value=false;}
-            interaction.prop('snapshot', value);
+        $form.find("#SnapShot").on("click", function () {
+           var value = $(this).prop("checked");
+           interaction.prop('snapshot',value)
         });
 
         $form.find(".panelSizer").on("change", function(event){
