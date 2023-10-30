@@ -89,9 +89,10 @@ define([
                 value, $pulite;
 
             $pulite = $container.find('.respCatSem').html();
-            $pulite = $pulite.slice(0, -1);
 
-            value = '{"AnswersSet":[' + $container.find('.respNode').html() + '],"AnsewrsIdoc":{' + $container.find('.idocAnswers').html() + '},"LastNode":"' + $container.find('.lastNode').html() + '"}';
+             // DEPRECATED : "AnsewrsIdoc":{' + $container.find('.idocAnswers').html() + '}
+
+           value = '{"AnswersSet":[' + $container.find('.respNode').html() + '],"Semantic":{'+$pulite+'},"LastNode":"' + $container.find('.lastNode').html() + '"}';
 
 
             return { base: { string: value } };

@@ -1,0 +1,273 @@
+/*
+Copyright Depp - march 2019
+Based on Wiquid's PCI Generator for TAO platform Free to use 
+www.wiquid.fr/depp/chatbot
+Developed by Jean-Philippe Rivière - Wiquid
+Project Coordination : Isabelle Lavieville, Saskia Keskpaik, Thierry Rocher. 
+Authors: Francoise Detienne, Michael Baker, Jean-Marie Burkhard, Ifsttar - Todd Lubart, Cyrille Feybesse, Severine Maggio, Paris Descartes, Lati
+*/
+
+.qti-customInteraction .GlipsInteraction {
+    width: 100%;
+    padding: 10px 20px 16px;
+    margin-bottom: 20px;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(230, 230, 230, 1);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(230, 230, 230, 1);
+    box-shadow: 10px 10px 5px 0px rgba(230, 230, 230, 1);
+}
+
+.qti-customInteraction .GlipsInteraction .SQTitre {
+    font-style: italic;
+    font-weight: bold;
+    font-size: 27px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.qti-customInteraction .GlipsInteraction .btDiv {
+    text-align: center;
+    padding: 10px;
+}
+
+.qti-customInteraction .GlipsInteraction .actorlabel {
+    font-weight: bold;
+    font-style: normal;
+}
+
+.qti-customInteraction .GlipsInteraction {
+    width: 100%;
+    padding: 10px 20px 16px;
+    margin-bottom: 20px;
+}
+
+.qti-customInteraction .GlipsInteraction .fridge {
+    display: none;
+}
+
+.qti-customInteraction .GlipsInteraction .prompt {
+    position: relative;
+}
+
+.qti-customInteraction .GlipsInteraction .leftBox {
+    display: none;
+    width: 450px;
+    min-height: 697px;
+    float: left;
+    padding: 10px;
+    border: 1px grey solid;
+    border-collapse: all;
+    margin-bottom: 20px;
+}
+
+.qti-customInteraction .GlipsInteraction .leftBoxClone {
+    width: 450px;
+    min-height: 697px;
+    float: left;
+    padding: 10px;
+    border: 1px grey solid;
+    border-collapse: all;
+    margin-bottom: 20px;
+}
+
+.qti-customInteraction .GlipsInteraction .IDocWrapper {
+    width: 490px;
+    min-height: 697px;
+    float: right;
+    padding: 10px;
+    border-right: 1px grey solid;
+    border-bottom: 1px grey solid;
+    border-top: 1px grey solid;
+    margin-bottom: 20px;
+    border-collapse: all;
+}
+
+
+/* .qti-customInteraction .GlipsInteraction  .headBar{
+	background-color:#e5e5e5 ;} */
+
+.qti-customInteraction .GlipsInteraction .accordionBox {
+    background-color: #e2accc;
+}
+
+.qti-customInteraction .GlipsInteraction .btAccordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 3px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+}
+
+.qti-customInteraction .GlipsInteraction .btAccordion.active,
+.qti-customInteraction .GlipsInteraction .btAccordion:hover {
+    background-color: #ccc;
+}
+
+.qti-customInteraction .GlipsInteraction .btAccordion.active,
+.qti-customInteraction .GlipsInteraction .AccordionContent {
+    padding: 0 18px;
+    background-color: white;
+    /*  max-height: 0; */
+    overflow: hidden;
+    /* transition: max-height 0.2s ease-out; */
+}
+
+.qti-customInteraction .GlipsInteraction .chatDiv {}
+
+.qti-customInteraction .GlipsInteraction .participants {
+    text-align: center;
+}
+
+.qti-customInteraction .GlipsInteraction .actorList {
+    margin-left: 100px;
+    margin-top: -7px;
+    background-color: #fce8e8;
+    padding: 10px;
+    border: 1px lightgrey solid;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.qti-customInteraction .GlipsInteraction .chatRoom {
+    margin-top: 10px;
+    border: 1px grey solid;
+    overflow: scroll;
+    height: 210px;
+}
+
+.qti-customInteraction .GlipsInteraction .repDiv {
+    margin-top: 0px;
+    ;
+}
+
+.qti-customInteraction .GlipsInteraction .propositions {
+    ;
+}
+
+.qti-customInteraction .GlipsInteraction .propSender {
+    text-align: center;
+}
+
+.qti-customInteraction .GlipsInteraction .proposi {
+    border: 1px lightgrey solid;
+    color: black;
+    cursor: pointer;
+    background-color: gainsboro;
+    padding: 10px;
+    margin-top: 5px;
+    ;
+}
+
+.qti-customInteraction .GlipsInteraction .proposiAfter {
+    color: lightgrey;
+    border: 1px lightgrey solid;
+    cursor: default;
+    background-color: white;
+    padding: 10px;
+    margin-top: 10px;
+    ;
+}
+
+.qti-customInteraction .GlipsInteraction .proposi:hover {
+    background-color: #eaeaea;
+    color: grey;
+}
+
+.qti-customInteraction .GlipsInteraction .envoy {
+    margin-top: 10px;
+    cursor: pointer;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 150px;
+    background-color: lightgray;
+    padding: 10px;
+    ;
+}
+
+.qti-customInteraction .GlipsInteraction .envoy:hover {
+    background-color: darkslategrey;
+    margin-bottom: 5px;
+    color: white;
+}
+
+.qti-customInteraction .GlipsInteraction .dialogUl {
+    list-style-type: none;
+}
+
+.qti-customInteraction .GlipsInteraction .dialogLi {
+    margin-left: -30px;
+    margin-bottom: 5px;
+    text-align: justify;
+    margin-right: 5px;
+}
+
+.qti-customInteraction .GlipsInteraction .actor {
+    font-weight: bold;
+    margin-right: 3px;
+}
+
+.qti-customInteraction .GlipsInteraction .system {
+    font-style: italic;
+}
+
+.qti-customInteraction .GlipsInteraction .globWrapper {
+    width: 940px;
+    float: left;
+}
+
+.qti-customInteraction .GlipsInteraction .headBar {
+    background-color: #415f41;
+    height: 50px;
+    width: 940px;
+    color: white;
+    padding: 10px;
+}
+
+.qti-customInteraction .GlipsInteraction .accordion {
+    border: 1px grey solid;
+    padding: 5px;
+    margin-bottom: 1px;
+}
+
+.qti-customInteraction .GlipsInteraction .waiting {
+    animation: blinker 2s ease 2;
+}
+
+.qti-customInteraction .GlipsInteraction .arriving {
+    animation: arriver 2s ease;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0.3;
+        background-color: red;
+    }
+}
+
+@keyframes arriver {
+    50% {
+        background-color: #82daf2;
+    }
+}
+
+.qti-customInteraction .GlipsInteraction .selected {
+    background-color: #aee5be;
+    cursor: pointer;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.qti-customInteraction .GlipsInteraction .SQContainer {
+    padding: 10px;
+}
+
+.qti-customInteraction .GlipsInteraction .hiddenRep {
+    display: none;
+}
+
+.qti-customInteraction .GlipsInteraction .leftBox {
+    display: none;
+}
