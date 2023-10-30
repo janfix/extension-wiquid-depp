@@ -38,10 +38,6 @@ define([
             interaction = _widget.element,
             response = interaction.getResponseDeclaration();
 
-
-
-
-
         //render the form using the form template
         $form.html(formTpl({
             serial: response.serial,

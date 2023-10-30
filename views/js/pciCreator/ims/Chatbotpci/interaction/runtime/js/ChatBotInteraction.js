@@ -89,10 +89,10 @@ define([
                 value, $pulite;
 
             $pulite = $container.find('.respCatSem').html();
-            //if (typeof $pulite !== "undefined") { $pulite = $pulite.slice(0, -1); }
+           
+            // DEPRECATED : "AnsewrsIdoc":{' + $container.find('.idocAnswers').html() + '}
 
-
-            value = 'Answers : ' + $container.find('.respNode').html() + ' - Semantic : ' + $pulite + ' - Last Node : ' + $container.find('.lastNode').html(); // TO DO Response System
+            value = '{"AnswersSet":[' + $container.find('.respNode').html() + '],"Semantic":{'+$pulite+'},"LastNode":"' + $container.find('.lastNode').html() + '"}';
 
 
             return { base: { string: value } };
