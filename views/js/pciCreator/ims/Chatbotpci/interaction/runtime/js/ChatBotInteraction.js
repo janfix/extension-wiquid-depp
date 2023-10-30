@@ -92,7 +92,7 @@ define([
            
             // DEPRECATED : "AnsewrsIdoc":{' + $container.find('.idocAnswers').html() + '}
 
-            value = '{"AnswersSet":[' + $container.find('.respNode').html() + '],"Semantic":{'+$pulite+'},"LastNode":"' + $container.find('.lastNode').html() + '"}';
+            value = '{"Answers":[' + $container.find('.respNode').html() + '],"Semantic":['+$pulite+'],"LastNode":"' + $container.find('.lastNode').html() + '"}';
 
 
             return { base: { string: value } };
