@@ -86,13 +86,16 @@ define([
         getResponse: function() {
 
             var $container = $(this.dom),
-                value, $pulite;
+                value,
+                AnswerSet =  $container.find('.respNode').html(),
+                cleanAnswerSet =  '"' + AnswerSet.split(',').join('","') + '"',
+                Semantic = $container.find('.respCatSem').html(),
+                cleanSemantic  = '"' + Semantic.split(',').join('","') + '"';
 
-            $pulite = $container.find('.respCatSem').html();
            
             // DEPRECATED : "AnsewrsIdoc":{' + $container.find('.idocAnswers').html() + '}
 
-            value = '{"Answers":[' + $container.find('.respNode').html() + '],"Semantic":['+$pulite+'],"LastNode":"' + $container.find('.lastNode').html() + '"}';
+            value = '{"AnswersSet":[' + cleanAnswerSet + '],"Semantic":['+cleanSemantic+'],"LastNode":"' + $container.find('.lastNode').html() + '"}';
 
 
             return { base: { string: value } };
