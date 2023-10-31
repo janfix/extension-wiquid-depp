@@ -115,8 +115,6 @@ Authors: Francoise Detienne, Michael Baker, Jean-Marie Burkhard, Ifsttar - Todd 
     /* transition: max-height 0.2s ease-out; */
 }
 
-.qti-customInteraction .GlipsInteraction .chatDiv {}
-
 .qti-customInteraction .GlipsInteraction .participants {
     text-align: center;
 }
@@ -139,10 +137,6 @@ Authors: Francoise Detienne, Michael Baker, Jean-Marie Burkhard, Ifsttar - Todd 
 
 .qti-customInteraction .GlipsInteraction .repDiv {
     margin-top: 0px;
-    ;
-}
-
-.qti-customInteraction .GlipsInteraction .propositions {
     ;
 }
 
