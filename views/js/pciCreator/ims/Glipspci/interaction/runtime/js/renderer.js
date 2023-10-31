@@ -726,6 +726,59 @@ define([
 
         function renderDialogChoices(lbox, setAnsw, node, $container) {
             $container.find(".proposiAfter").removeClass('proposiAfter').addClass('proposi'); //Cleaning Restart
+            
+            //TestAllDocAnsw()
+            function TestAllDocAnsw(){
+                var SETANSW = "SetAnsw",
+                PROANSW = "proAnswer",
+                GLIEU = 'glieu[ARR]',
+                TRIPLE = ["T1", "T2", "T3"],
+                PREM = "prem",
+                PERSONAME2 = 'perso2Name',
+                ALLSTARTS = ["allStarts"],
+                CHOSENSOUNDLABEL = "chosenSoundLabel",
+                SELECTEDSTART = "selectedStart",
+                SELECTEDEND = "selectedEnd",
+                EPOQIMGLABEL = "epoqImgLabel",
+                ALLENDS = ["allEnds"],
+                LISTA = ["listA"],
+                LISTM = ["listM"],
+                VERBECHOISI = 'verbeChoisi',
+                MOTCHOISI = 'motFinChoisi';                
+                
+                //.replace(/[&\/\\#+()$~%'":*?<>={}]/g, '')
+                IDocAnswers.push('"' + SETANSW + '-' + PROANSW +'"')  ;
+                IDocAnswers.push('"lieu - ' + GLIEU + '"'); //OK
+                IDocAnswers.push('"seriePerso - ' + TRIPLE[0] + ',' + TRIPLE[1] + ',' + TRIPLE[2] + '"'); //OK
+                IDocAnswers.push('"nom_perso1 - ' + PREM.replace(/[&\/\\#+()$~%'":*?<>={}]/g,)+'"');
+                IDocAnswers.push('"nom_perso2 - ' + PERSONAME2 + '"');
+                IDocAnswers.push('"propDebut -' + ALLSTARTS.join(',') + '"'); //OK
+                IDocAnswers.push('"Son - ' + CHOSENSOUNDLABEL + '"');
+                IDocAnswers.push('"propDebutSelect - ' + SELECTEDSTART.replace(/[&\/\\#+()$~%'":*?<>={}]/g,) +'"');
+                IDocAnswers.push('"propFinSelect - ' + SELECTEDEND.replace(/[&\/\\#+()$~%'":*?<>={}]/g,) +'"');
+                IDocAnswers.push('"verbesDebutList -' + LISTA + '","verbeChoisi - ' + VERBECHOISI + '"');
+                IDocAnswers.push('"motsFin -' + LISTM + '","motFinChoisi -' + MOTCHOISI + '"');
+                IDocAnswers.push('"Image - ' + EPOQIMGLABEL + '"');
+                IDocAnswers.push('"propFin -' + ALLENDS.join(',') + '"');
+                IDocAnswers.push('"propDebut-' + ALLSTARTS.join(',') + '"');
+                IDocAnswers.push('"propFin-' + ALLENDS.join(',') + '"');
+
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             // Attach listeners to button
             lbox.find('.prop1').click(function(event) {
@@ -755,6 +808,7 @@ define([
 
             lbox.find('.envoy').click(function(event) {
                 $container.find('.selected').css("color", "whitesmoke");
+                
 
                 if ($container.find('.selected').attr('data')) {
                     var ansNumber = String($container.find('.selected').attr("class"));
@@ -765,9 +819,8 @@ define([
                         ansNumber = 0;
                         //Open ended to Result Data!
                         var proAnswer = $container.find(".openSetAns").val().replace(/[&\/\\#+()$~%'":*?<>={}]/g, '');
-                        IDocAnswers.push('"' + setAnsw + '":' + (JSON.stringify(proAnswer)));
-                        //IDocAnswers.push('"'+setAnsw +'":'+(JSON.stringify($(".openSetAns").val())));
-                        //IDocAnswers.push('"' + setAnsw + '":' + $(".openSetAns").val().replace(/[&\/\\#+()$~%'":*?<>={}]/g, ''));
+                        IDocAnswers.push('"' + setAnsw + '-' + proAnswer +'"')  ;
+                       
                     }
 
                     respons.push(setAnsw[ansNumber]); //Stock response node.
@@ -1008,7 +1061,7 @@ define([
             $container.find(".desti").on("click", function() {
                 $container.find(".choixDuLieu").prop('disabled', true);
                 //Answering system    
-                IDocAnswers.push('"lieu":"' + glieu[keyList][location] + '"');
+                IDocAnswers.push('"lieu - ' + glieu[keyList][location] + '"');
                 preparRespons($container);
             })
         }
@@ -1056,7 +1109,7 @@ define([
 
             $container.find(".desti").on("click", function() {
                 $container.find('.personnage').prop("disabled", true);
-                IDocAnswers.push('"seriePerso":["' + triple[0] + '","' + triple[1] + '","' + triple[2] + '"]');
+                IDocAnswers.push('"seriePerso - ' + triple[0] + ',' + triple[1] + ',' + triple[2] + '"');
                 preparRespons($container);
             });
         }
@@ -1074,7 +1127,7 @@ define([
                 $container.find(".character1line").show();
                 $container.find(".charType1").html(characters[triple[0]]);
                 $container.find(".charName1").html(prem);
-                IDocAnswers.push('"nom_perso1": ' + JSON.stringify(prem)); //GOK
+                IDocAnswers.push('"nom_perso1 - ' + prem.replace(/[&\/\\#+()$~%'":*?<>={}]/g,)+'"'); //NEW 
                 preparRespons($container);
             })
         }
@@ -1092,7 +1145,8 @@ define([
                 $container.find(".charType2").html(characters[triple[1]]);
                 $container.find(".charName2").html(perso2Name);
                 $container.find('input[name=persoRadio]').prop("disabled", true);
-                IDocAnswers.push('"nom_perso2":"' + perso2Name + '"');
+                IDocAnswers.push('"nom_perso2 - ' + perso2Name + '"'); //NEW
+                //IDocAnswers.push('"nom_perso2 - ' + PERSONAME2 + '"');
                 preparRespons($container);
             });
 
@@ -1138,7 +1192,8 @@ define([
                     $container.find(".beginLine").show();
                     $container.find(".memoStart").append("<li>" + allStartsHTML[i] + "</li>")
                 }
-                IDocAnswers.push('"propDebut":[' + allStarts.join(',') + ']');
+                IDocAnswers.push('"propDebut -' + allStarts.map(item => item.replace(/"/g, '')).join(',') + '"'); //NEW
+              //IDocAnswers.push('"propDebut -' + ALLSTARTS.join(',') + '"');
                 displayer(["bot60"], $container); //OK bot60 HARDCODED!
                 preparRespons($container);
                 clearInterval(x); // Cancel countdown !
@@ -1175,7 +1230,7 @@ define([
                 $container.find("audio").trigger('pause');
                 $container.find(".IDocContent").append("<div class='maskAudio'><div>")
                 $container.find(".selectAudiAtmo").prop("disabled", "true");
-                IDocAnswers.push('"Son":"' + chosenSoundLabel + '"');
+                IDocAnswers.push('"Son - ' + chosenSoundLabel + '"');// NEW
                 preparRespons($container);
             });
 
@@ -1218,7 +1273,8 @@ define([
                 //$container.find('input[name=debutHistoire]').prop("disabled", true);
             });
             $container.find('.desti').on("click", function() {
-                IDocAnswers.push('"propDebutSelect":' + JSON.stringify(selectedStart));
+                IDocAnswers.push('"propDebutSelect - ' + selectedStart.replace(/[&\/\\#+()$~%'":*?<>={}]/g,) +'"'); //NEW
+              //IDocAnswers.push('"propDebutSelect - ' + SELECTEDSTART.replace(/[&\/\\#+()$~%'":*?<>={}]/g,) +'"');
                 preparRespons($container);
                 clearTimeout(timeDesti);
                 clearTimeout(timeTimer);
@@ -1260,7 +1316,8 @@ define([
             });
             $container.find('.desti').on("click", function() {
                 window.scrollTo(0, 0);
-                IDocAnswers.push('"propFinSelect":' + JSON.stringify(selectedEnd));
+                IDocAnswers.push('"propFinSelect - ' + selectedEnd.replace(/[&\/\\#+()$~%'":*?<>={}]/g,) +'"'); //NEW
+                //IDocAnswers.push('"propFinSelect - ' + SELECTEDEND.replace(/[&\/\\#+()$~%'":*?<>={}]/g,) +'"');
                 preparRespons($container);
             });
         };
@@ -1304,7 +1361,8 @@ define([
                 $container.find(".verbList").html(listA[keyList][0]);
                 $container.find(".verbChosen").html(listA[keyList][verb4]);
                 $container.find('.verbs').prop("disabled", true);
-                IDocAnswers.push('"verbesDebutList":"' + listA[keyList][0].slice(-(listA[keyList][0].length), -6) + '","verbeChoisi":"' + listA[keyList][verb4] + '"');
+                IDocAnswers.push('"verbesDebutList -' + listA[keyList][0].slice(-(listA[keyList][0].length), -6) + '","verbeChoisi - ' + listA[keyList][verb4] + '"'); //NEW
+              //IDocAnswers.push('"verbesDebutList -' + LISTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA + '","verbeChoisi - ' + VERBECHOISIIIIIIIIIII + '"');
                 preparRespons($container);
 
             });
@@ -1348,7 +1406,8 @@ define([
                 $container.find(".motList").html(listM[keyList][0]);
                 $container.find(".motChosen").html(listM[keyList][mot4]);
                 $container.find('input[name=motA]').prop("disabled", true);
-                IDocAnswers.push('"motsFin":"' + listM[keyList][0].slice(-(listM[keyList][0].length), -6) + '","motFinChoisi":"' + listM[keyList][mot4] + '"');
+                IDocAnswers.push('"motsFin -' + listM[keyList][0].slice(-(listM[keyList][0].length), -6) + '","motFinChoisi -' + listM[keyList][mot4] + '"'); //NEW
+              //IDocAnswers.push('"motsFin -' + LISTMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM + '","motFinChoisi -' + MOTCHOISIIIIIIIIIIII + '"');
                 preparRespons($container);
 
             })
@@ -1384,7 +1443,8 @@ define([
             });
 
             $container.find(".EpoqBT").on("click", function() {
-                IDocAnswers.push('"Image":"' + epoqImgLabel[imageChosen] + '"');
+                IDocAnswers.push('"Image - ' + epoqImgLabel[imageChosen] + '"');//NEW
+              //IDocAnswers.push('"Image - ' + EPOQIMGLABEL + '"');
                 //console.log(epoqImgLabel[imageChosen])
                 preparRespons($container);
             })
@@ -1426,7 +1486,8 @@ define([
                         allEndsHTML.push($container.find(this).val());
                     }
                 });
-                IDocAnswers.push('"propFin":[' + allEnds.join(',') + ']');
+                IDocAnswers.push('"propFin -' + allEnds.map(item => item.replace(/"/g, '')).join(',') + '"'); //NEW
+              //IDocAnswers.push('"propFin -' + ALLENDS.join(',') + '"');
                 displayer(["bot78"], $container); //OK
                 preparRespons($container);
                 $container.find(".tarea").prop("disabled", true);
@@ -1442,8 +1503,7 @@ define([
                 })
             }, 5000);
 
-            /*IDocAnswers.push('{resume:' + $('.wbody').html()+'}');
-            preparRespons($container); */
+
         }
 
         function Fnbot58($container) {
@@ -1505,35 +1565,7 @@ define([
                 // Display the result in the element with id="demo"
                 $container.find(".clock").html(minutes + "min : " + seconds + "s ");
 
-                // If the count down is finished, write some text 
-                /*  if (distance < 100) {
-                     console.log("INF100");
-                     if (nodeAfter[0] == "bot60") {
-                         $container.find(".tarea").each(function (index) {
-                             if ($container.find(this).val() != "") {
-                                 if (solo) {
-                                     allStarts.push(JSON.stringify($container.find(this).val()));
-                                     allStartsHTML.push($container.find(this).val());
-                                 }
-                             }
-                         });
-                         solo = false;
-                         //IDocAnswers.push('"propDebut":[' + allStarts.join(',') + ']');
-                     }
-     
-                     if (nodeAfter[0] == "bot78") {
-                         $container.find(".tarea").each(function (index) {
-                             if ($container.find(this).val() != "") {
-                                 if (solo) {
-                                     allEnds.push(JSON.stringify($container.find(this).val()));
-                                     allEndsHTML.push($container.find(this).val());
-                                 }
-                             }
-                         });
-                         solo = false;
-                         //IDocAnswers.push('"propFin":[' + allEnds.join(',') + ']');
-                     }
-                 } */
+                
 
                 if (distance < 2) {
                     clearTimeout(timeTimer);
@@ -1551,7 +1583,8 @@ define([
                             $container.find(".beginLine").show();
                             $container.find(".memoStart").append("<li>" + allStartsHTML[i] + "</li>")
                         }
-                        IDocAnswers.push('"propDebut":[' + allStarts.join(',') + ']');
+                        IDocAnswers.push('"propDebut -' + allStarts.map(item => item.replace(/"/g, '')).join(',') + '"'); //NEW
+                     /* IDocAnswers.push('"propDebut -' + ALLSTARTS.join(',') + '"'); */
                         preparRespons($container);
                         clearInterval(x); // Cancel countdown !
 
@@ -1573,7 +1606,8 @@ define([
                             }
                         });
                         solo = false;
-                        IDocAnswers.push('"propFin":[' + allEnds.join(',') + ']');
+                        IDocAnswers.push('"propFin -' + allEnds.map(item => item.replace(/"/g, '')).join(',') + '"'); //NEW
+                        //IDocAnswers.push('"propFin -' + ALLENDS.join(',') + '"');
                         preparRespons($container);
                         clearInterval(x); // Cancel countdown !
                         $container.find(".IDocContent").prepend("<div class='timesUp'>Temps écoulé !</div>");
@@ -1628,6 +1662,8 @@ define([
                 }); */
                 // $container.find(".wbody").dialog("open");
             });
+
+            
 
         }
 
