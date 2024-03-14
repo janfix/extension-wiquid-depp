@@ -316,7 +316,7 @@ define([
                 },
                 onKeyDown: function onKeyDown() {
                     var that = this;
-                    $(document).on("keydown", function(ev) {
+                    $container.on("keydown", function(ev) {
                         if (ev.key == "Delete" || ev.key == "Backspace") {
                             ev.preventDefault()
                             console.log("PRESS DELETE OR BACKSPACE")
